@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-    <?= $post; ?>
+    <article>
+        <?= $post; ?>
+    </article>
+
+    <a href="/">Go Back</a>
 </body>
 </html>
