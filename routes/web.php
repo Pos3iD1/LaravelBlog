@@ -24,7 +24,9 @@ Route::get('/post/{slug}', function ($slug) {
         abort(404);
     }
 
-    $post = file_get_contents($path);
+    $post = cache()->remember("post.{$slug}", 3600, function() use($path) {
+        return file_get_contents($path);
+    });
 
     return view('post', [
         'post' => $post,
